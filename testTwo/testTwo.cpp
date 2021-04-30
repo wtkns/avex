@@ -1,5 +1,12 @@
 #include <GLFW/glfw3.h>
 
+
+void ProcessInput(GLFWwindow* window)
+{
+    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+        glfwSetWindowShouldClose(window, true);
+}
+
 int main(void)
 {
     GLFWwindow* window;
@@ -22,7 +29,10 @@ int main(void)
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
     {
+        ProcessInput(window);
+
         /* Render here */
+        glClearColor(1.00f, 0.49f, 0.04f, 1.00f);
         glClear(GL_COLOR_BUFFER_BIT);
 
         /* Swap front and back buffers */

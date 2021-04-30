@@ -1,31 +1,32 @@
-cmake_minimum_required (VERSION 3.0)
+#avex project cmake
+cmake_minimum_required (VERSION 3.7)
 project (avex)
 
+# Set submodule directory paths
+set(GLAD ${PROJECT_SOURCE_DIR}/deps/glad)
+set(GLFW ${PROJECT_SOURCE_DIR}/deps/glfw)
+set(GLEW ${PROJECT_SOURCE_DIR}/deps/glew-cmake)
+set(GLM ${PROJECT_SOURCE_DIR}/deps/glm)
 
-find_package( OpenGL REQUIRED )
-include_directories( ${OPENGL_INCLUDE_DIRS} )
+# Set submodule directory paths
+set(TEST_ONE ${PROJECT_SOURCE_DIR}/testOne)
+set(TEST_TWO ${PROJECT_SOURCE_DIR}/testTwo)
+
+add_subdirectory(${GLFW})
+add_definitions(-DGLEW_STATIC)
+add_subdirectory(${GLEW} EXCLUDE_FROM_ALL)
+add_subdirectory(${GLM} EXCLUDE_FROM_ALL)
+
+add_subdirectory(${TEST_ONE})
+add_subdirectory(${TEST_TWO})
 
 
-set( GLFW_BUILD_DOCS OFF CACHE BOOL  "GLFW lib only" )
-set( GLFW_INSTALL OFF CACHE BOOL  "GLFW lib only" )
 
-add_subdirectory (deps/glfw)
 
-if( MSVC )
-    SET( CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /ENTRY:mainCRTStartup" )
-endif()
 
-set( GLFW-CMAKE-STARTER-SRC
-     testOne/testOne.cpp
-     )
-     
-add_executable( GLFW-CMake-starter WIN32 ${GLFW-CMAKE-STARTER-SRC} )
-target_link_libraries( GLFW-CMake-starter ${OPENGL_LIBRARIES} glfw )
 
-if( MSVC )
-    if(${CMAKE_VERSION} VERSION_LESS "3.6.0") 
-        message( "\n\t[ WARNING ]\n\n\tCMake version lower than 3.6.\n\n\t - Please update CMake and rerun; OR\n\t - Manually set 'GLFW-CMake-starter' as StartUp Project in Visual Studio.\n" )
-    else()
-        set_property( DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT GLFW-CMake-starter )
-    endif()
-endif()
+
+
+
+
+
