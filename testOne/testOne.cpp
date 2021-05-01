@@ -9,7 +9,7 @@ int main(void)
         return -1;
 
     /* Create a windowed mode window and its OpenGL context */
-    window = glfwCreateWindow(800, 600, "Hello World", NULL, NULL);
+    window = glfwCreateWindow(800, 600, "Test One", NULL, NULL);
     if (!window)
     {
         glfwTerminate();
@@ -23,6 +23,7 @@ int main(void)
     while (!glfwWindowShouldClose(window))
     {
         /* Render here */
+        glClearColor(1.00f, 0.49f, 0.04f, 1.00f);
         glClear(GL_COLOR_BUFFER_BIT);
 
         /* Swap front and back buffers */
