@@ -1,2 +1,4 @@
 [Bb]uild/*
+out/*
 .vs/*
+CMakeSettings.json
