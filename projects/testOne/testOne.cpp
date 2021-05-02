@@ -1,7 +1,10 @@
+#include <iostream>
+
 #include <GLFW/glfw3.h>
 
 int main(void)
 {
+
     GLFWwindow* window;
 
     /* Initialize the library */
