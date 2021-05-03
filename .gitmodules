@@ -1,15 +1,12 @@
 [submodule "deps/glfw"]
-	path = deps/glfw
+	path = shared/submodules/glfw
 	url = https://github.com/glfw/glfw.git
-[submodule "deps/glad"]
-	path = deps/glad
-	url = https://github.com/Dav1dde/glad.git
 [submodule "deps/glm"]
-	path = deps/glm
+	path = shared/submodules/glm
 	url = https://github.com/g-truc/glm.git
 [submodule "deps/stb"]
-	path = deps/stb
+	path = shared/submodules/stb
 	url = https://github.com/nothings/stb.git
-[submodule "deps/glew-cmake"]
-	path = deps/glew-cmake
+[submodule "shared/submodules/glew"]
+	path = shared/submodules/glew
 	url = https://github.com/Perlmint/glew-cmake
