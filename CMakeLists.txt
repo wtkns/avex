@@ -1,20 +1,17 @@
-#avex project cmake
-cmake_minimum_required (VERSION 3.7)
+# avex project cmake
+# Top Level
+cmake_minimum_required (VERSION 3.8)
+
 project (avex)
 
-# Set submodule directory paths
-#set(GLAD ${PROJECT_SOURCE_DIR}/deps/glad/cmake)
-set(GLFW ${PROJECT_SOURCE_DIR}/deps/glfw)
-set(GLEW ${PROJECT_SOURCE_DIR}/deps/glew-cmake)
-set(GLM ${PROJECT_SOURCE_DIR}/deps/glm)
+set(CMAKE_SHARED_SUBMODULES "${CMAKE_SOURCE_DIR}/shared/submodules")
 
-add_subdirectory(${GLFW})
-add_definitions(-DGLEW_STATIC)
-add_subdirectory(${GLEW})
-add_subdirectory(${GLM})
-#add_subdirectory(${GLAD} deps/glad)
+# Set submodule directory paths
+add_subdirectory(${CMAKE_SHARED_SUBMODULES}/glfw)
+add_subdirectory(${CMAKE_SHARED_SUBMODULES}/glew)
 
 # Add Sub-Projects
 add_subdirectory(projects)
 
+# This just keeps vs 19 from complaining
 add_executable(avex avex.cpp )

@@ -1,7 +1,7 @@
 # Test One
 cmake_minimum_required (VERSION 3.7)
 
-project (testOne)
+project (triangle)
 add_executable( ${PROJECT_NAME} ${PROJECT_NAME}.cpp )
 
 target_include_directories ( ${PROJECT_NAME} 
