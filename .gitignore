@@ -3,3 +3,4 @@ out/*
 .vs/*
 .idea/*
 CMakeSettings.json
+cmake-build-debug
